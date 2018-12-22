@@ -10,15 +10,17 @@ const int num_thr = 3;
 const int N = 300000;
 
 
-void MC(pcg64& rng, int& k, int n) {
+void MC(pcg64& rng, int& sucsess, int n)
+{
 	std::uniform_real_distribution<double> unif(-1, 1);
-	k = 0;
+	sucsess = 0;
 	double x, y;
-	for (int i = 0; i < n; ++i) {
+	for (int i = 0; i < n; ++i)
+	{
 		x = unif(rng);
 		y = unif(rng);
 		if (x * x + y * y < 1)
-			++k;
+			++sucsess;
 	}
 }
 
